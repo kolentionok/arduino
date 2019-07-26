@@ -9,7 +9,7 @@ void setup() {
   pinMode(PIN_RELAY, OUTPUT); // Пин реле - выход
   digitalWrite(PIN_RELAY, HIGH); // Выключаем реле, посылаем высокий сигнал
   Serial.begin(9600);
-  Serial.println("DHTxx test!");
+  Serial.println("Проверка, подключен ли датчик...");
   dht.begin();
 }
 
@@ -17,7 +17,7 @@ void loop() {
 float h = dht.readHumidity(); // влажность
 float t = dht.readTemperature(); //температура
 if (isnan(t) || isnan(h)) {
-Serial.println("кожаный, датчик мне подключи"); // отказоустойчивость 
+Serial.println("кожаный, датчик мне подключи"); // отказоустойчивость при потери датчика
 }
 else {
 Serial.print("Humidity: ");
